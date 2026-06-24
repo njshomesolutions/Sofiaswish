@@ -14,35 +14,127 @@ overflow-x:hidden;
 }
 
 /* ==========================
-BACKGROUND BLOBS
+BACKGROUND BLOBS - manchas irregulares pequeñas dispersas
 ========================== */
 
+/* Mancha 1 - arriba izquierda, rosa */
 body::before{
 content:"";
 position:fixed;
-top:-120px;
-left:-120px;
-width:800px;
-height:800px;
+top:-60px;
+left:-80px;
+width:320px;
+height:280px;
 background:#ffd9e8;
-border-radius:58% 42% 65% 35% / 40% 55% 45% 60%;
-opacity:.9;
-filter:blur(70px);
+border-radius:68% 32% 55% 45% / 48% 62% 38% 52%;
+opacity:.75;
+filter:blur(45px);
 z-index:-10;
 pointer-events:none;
 }
 
+/* Mancha 2 - abajo derecha, verde */
 body::after{
 content:"";
 position:fixed;
-bottom:-120px;
-right:-120px;
-width:750px;
-height:750px;
+bottom:-50px;
+right:-60px;
+width:300px;
+height:260px;
 background:#dcffd8;
-border-radius:40% 60% 35% 65% / 60% 40% 60% 40%;
-opacity:.9;
-filter:blur(70px);
+border-radius:42% 58% 38% 62% / 55% 38% 62% 45%;
+opacity:.75;
+filter:blur(45px);
+z-index:-10;
+pointer-events:none;
+}
+
+/* Mancha 3 - centro izquierda, rosa claro */
+.blob-center-left{
+position:fixed;
+top:38%;
+left:-90px;
+width:220px;
+height:200px;
+background:#ffe8f2;
+border-radius:52% 48% 70% 30% / 35% 65% 35% 65%;
+opacity:.6;
+filter:blur(40px);
+z-index:-10;
+pointer-events:none;
+}
+
+/* Mancha 4 - centro, verde muy suave */
+.blob-center{
+position:fixed;
+top:50%;
+left:42%;
+width:260px;
+height:220px;
+background:#e8fde8;
+border-radius:60% 40% 45% 55% / 55% 45% 60% 40%;
+opacity:.45;
+filter:blur(50px);
+z-index:-10;
+pointer-events:none;
+}
+
+/* Mancha 5 - arriba derecha, rosa */
+.blob-top-right{
+position:fixed;
+top:-40px;
+right:-50px;
+width:240px;
+height:210px;
+background:#ffd6e7;
+border-radius:38% 62% 50% 50% / 60% 40% 60% 40%;
+opacity:.65;
+filter:blur(40px);
+z-index:-10;
+pointer-events:none;
+}
+
+/* Mancha 6 - centro derecha, verde */
+.blob-center-right{
+position:fixed;
+top:55%;
+right:-70px;
+width:200px;
+height:230px;
+background:#d8fcd8;
+border-radius:55% 45% 35% 65% / 42% 58% 42% 58%;
+opacity:.6;
+filter:blur(42px);
+z-index:-10;
+pointer-events:none;
+}
+
+/* Mancha 7 - abajo izquierda, verde */
+.blob-bottom-left{
+position:fixed;
+bottom:15%;
+left:-60px;
+width:180px;
+height:190px;
+background:#d8fce0;
+border-radius:45% 55% 62% 38% / 58% 42% 55% 45%;
+opacity:.55;
+filter:blur(38px);
+z-index:-10;
+pointer-events:none;
+}
+
+/* Mancha 8 - arriba centro, rosa muy suave */
+.blob-top-center{
+position:fixed;
+top:-30px;
+left:35%;
+width:200px;
+height:160px;
+background:#ffe4ef;
+border-radius:50% 50% 65% 35% / 40% 60% 40% 60%;
+opacity:.5;
+filter:blur(45px);
 z-index:-10;
 pointer-events:none;
 }
@@ -58,20 +150,6 @@ display:flex;
 align-items:center;
 background:transparent;
 position:relative;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-width:450px;
-height:450px;
-background:#ffe7f0;
-border-radius:50%;
-top:50px;
-right:0;
-filter:blur(80px);
-opacity:.9;
-z-index:-1;
 }
 
 .hero-content{
@@ -178,34 +256,6 @@ background:transparent;
 position:relative;
 }
 
-.meet-sofia::before{
-content:"";
-position:absolute;
-width:350px;
-height:350px;
-background:#e9ffe7;
-border-radius:50%;
-left:-120px;
-bottom:80px;
-filter:blur(80px);
-opacity:.8;
-z-index:-1;
-}
-
-.meet-sofia::after{
-content:"";
-position:absolute;
-width:300px;
-height:300px;
-background:#fff0f6;
-border-radius:50%;
-right:-80px;
-top:80px;
-filter:blur(80px);
-opacity:.8;
-z-index:-1;
-}
-
 .meet-content{
 display:flex;
 align-items:center;
@@ -296,27 +346,13 @@ bottom:80px;
 }
 
 /* ==========================
-WHY SOFIA
+WHY SOFIA - con íconos SVG circulares
 ========================== */
 
 .why-sofia{
 padding:100px 6%;
 background:transparent;
 position:relative;
-}
-
-.why-sofia::before{
-content:"";
-position:absolute;
-width:300px;
-height:300px;
-background:#ffe7f1;
-border-radius:50%;
-right:5%;
-top:30px;
-filter:blur(80px);
-opacity:.7;
-z-index:-1;
 }
 
 .why-sofia h2{
@@ -330,6 +366,15 @@ color:#1b2b63;
 color:#e85a87;
 }
 
+/* corazón decorativo bajo el título */
+.why-sofia h2::after{
+content:"♥";
+display:block;
+font-size:1.2rem;
+color:#e85a87;
+margin-top:8px;
+}
+
 .why-cards{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -337,37 +382,71 @@ gap:25px;
 }
 
 .why-card{
-background:rgba(255,255,255,.85);
+background:rgba(255,255,255,.92);
 backdrop-filter:blur(5px);
 padding:35px 25px;
 border-radius:20px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+box-shadow:0 4px 18px rgba(0,0,0,.07);
 text-align:center;
-min-height:280px;
+min-height:300px;
+border:1px solid rgba(0,0,0,.06);
 }
 
+/* Sin border-top de color - usamos el ícono como acento */
 .why-card h3{
-font-size:1.25rem;
+font-size:1rem;
 margin-bottom:15px;
+letter-spacing:.5px;
+line-height:1.4;
+}
+
+.why-card.pink h3{
+color:#e85a87;
+}
+
+.why-card.green h3{
+color:#3db53c;
+}
+
+.why-card.blue h3{
 color:#1b2b63;
 }
 
 .why-card p{
-font-size:.95rem;
+font-size:.9rem;
 line-height:1.6;
 color:#666;
 }
 
-.why-card.pink{
-border-top:8px solid #e85a87;
+/* Ícono circular */
+.why-icon{
+width:80px;
+height:80px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0 auto 20px;
 }
 
-.why-card.green{
-border-top:8px solid #5bcb5a;
+.why-icon svg{
+width:60px;
+height:60px;
 }
 
-.why-card.blue{
-border-top:8px solid #1b2b63;
+.pink-icon{
+background:#fff0f6;
+border:2px solid #f7b8ce;
+}
+
+.green-icon{
+background:#f0fff0;
+border:2px solid #a8e6a8;
+}
+
+.blue-icon{
+background:#eef0f8;
+border:2px solid #9aa5cc;
 }
 
 /* ==========================
@@ -378,20 +457,6 @@ DONATION FACTS
 padding:100px 6%;
 background:transparent;
 position:relative;
-}
-
-.donation-facts::after{
-content:"";
-position:absolute;
-width:320px;
-height:320px;
-background:#e8ffe7;
-border-radius:50%;
-left:5%;
-bottom:30px;
-filter:blur(80px);
-opacity:.7;
-z-index:-1;
 }
 
 .donation-facts h2{
